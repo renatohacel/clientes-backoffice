@@ -12,7 +12,7 @@ public class CambiarEstadoCliente
         _repo = repo;
     }
 
-    public async Task<ClienteDto> EjecutarAsyn(Guid id, EstadoCliente nuevoEstado, uint version, CancellationToken ct)
+    public async Task<ClienteDto> EjecutarAsync(Guid id, EstadoCliente nuevoEstado, uint version, CancellationToken ct)
     {
         var cliente = await _repo.ObtenerPorIdAsync(id, ct) ?? throw new NoEncontradoException($"No existe el cliente {id}.");
 
