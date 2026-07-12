@@ -49,5 +49,5 @@ public class Cliente
 
         Estado = nuevoEstado;
     }
-
+    public uint Version { get; private set; }
 }
