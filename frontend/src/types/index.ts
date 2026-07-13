@@ -7,7 +7,7 @@ export interface ClienteDto {
     email: string;
     telefono: string | null;
     estado: EstadoCliente;
-    fechaAltaUtc: string;
+    fechaAlta: string;
     version: number;
     transicionesPermitidas: EstadoCliente[];
 }

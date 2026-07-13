@@ -9,7 +9,7 @@ public record ClienteDto(
     string Email,
     string? Telefono,
     string Estado,
-    DateTime FechaAltaUtc,
+    DateTime FechaAlta,
     uint Version,
     IReadOnlyList<string> TransicionesPermitidas)
 {
