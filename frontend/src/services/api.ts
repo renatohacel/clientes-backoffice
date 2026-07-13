@@ -20,7 +20,7 @@ export function guardarToken(nuevoToken: string) {
     localStorage.setItem("token", nuevoToken);
 }
 
-export function cerrarCesion() {
+export function cerrarSesion() {
     token = null;
     localStorage.removeItem("token");
 }
@@ -40,7 +40,7 @@ export async function request<T>(ruta: string, init?: RequestInit): Promise<T> {
     });
 
     if (respuesta.status === 401) {
-        cerrarCesion();
+        cerrarSesion();
         throw new ApiError(401, "no_autorizado", "Tu sesión expiró. Inicia sesión de nuevo.");
     }
 
