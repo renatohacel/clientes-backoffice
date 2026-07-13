@@ -10,14 +10,14 @@ export interface ErroresFormulario {
     telefono?: string;
 }
 
-export interface dataFormulario {
+export interface DataFormulario {
     nombre: string;
     rfc: string;
     email: string;
     telefono: string;
 }
 
-export function validarCliente(data: dataFormulario): ErroresFormulario {
+export function validarCliente(data: DataFormulario): ErroresFormulario {
     const errores: ErroresFormulario = {};
 
     const nombre = data.nombre.trim();
