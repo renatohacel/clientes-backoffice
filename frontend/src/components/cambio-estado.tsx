@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ApiError } from "@/services/api";
 import { cambiarEstado } from "@/services/clientes";
 import type { ClienteDto, EstadoCliente } from "@/types";
+import { estadoClasesButton } from "@/types/const";
 
 interface CambioEstadoProps {
     cliente: ClienteDto;
@@ -32,14 +33,16 @@ export function CambioEstado({ cliente, onCambiado, onConflicto }: CambioEstadoP
 
     return (
         <div className="flex items-center gap-2">
+            <strong className="text-slate-700">Cambiar a:</strong>
             {cliente.transicionesPermitidas.map((destino) => (
                 <button
                     key={destino}
                     disabled={enviando !== null}
                     onClick={() => handleCambio(destino)}
-                    className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                    className={`rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 disabled:opacity-50 transition-all duration-300 cursor-pointer ${estadoClasesButton[destino]}`}
                 >
-                    {enviando === destino ? "Cambiando..." : `→ ${destino}`}
+
+                    {enviando === destino ? "Cambiando..." : `${destino}`}
                 </button>
             ))}
             {error && <span className="text-sm text-red-600">{error}</span>}
