@@ -25,7 +25,7 @@ export function cerrarSesion() {
     localStorage.removeItem("token");
 }
 
-export function haySession(): boolean {
+export function haySesion(): boolean {
     return token !== null;
 }
 
@@ -33,8 +33,8 @@ export async function request<T>(ruta: string, init?: RequestInit): Promise<T> {
     const respuesta = await fetch(`${BASE_URL}${ruta}`, {
         ...init,
         headers: {
-            "Content-Type": "application/json",
-            ...(token ? { Authorizacion: `Bearer ${token}` } : {}),
+            ...(init?.body ? { "Content-Type": "application/json" } : {}),
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
             ...init?.headers,
         },
     });
